@@ -1,17 +1,17 @@
 import { Controller, Post } from '@nestjs/common';
 import { InvoicesService } from './invoices.service';
 
-@Controller('/invoices')
+@Controller('invoices')
 export class InvoicesController {
   
   constructor(private readonly invoicesService: InvoicesService) {}
 
-  @Post('/InvoicesInAssending')
-  InvoiceInAssending(): string {
+  @Post()
+  InvoicesInAssending(): string {
     return this.invoicesService.InvoicesInAssending();
   }
-  @Post('/InvoicesInDesending')
-  InvoiceInDesending(): string {
+  @Post('/invoicesindesending')
+  InvoicesInDesending(): string {
     return this.invoicesService.InvoicesInDesending();
   }
 }
