@@ -1,22 +1,23 @@
 import { Controller, Get, Post } from '@nestjs/common';
-@Controller('/API')
+import { RegistrationService } from './registration.service';
+@Controller('/registration')
 export class RegistrationController {
-  constructor() {}
+  constructor(private readonly registrationService: RegistrationService) {}
 
   @Post()
   create(): string {
-    return 'This actions adds a new Registration';
+    return this.registrationService.create();
   }
   @Get()
   findAll(): string {
-    return 'This actions adds a new Registration';
+    return this.registrationService.findAll();
   }
   @Post('/admin')
   createAdmin(): string {
-    return 'This actions adds a new Registration';
+    return this.registrationService.createAdmin();
   }
   @Post('/user')
   createUser(): string {
-    return 'This actions adds a new Registration';
+    return this.registrationService.createUser();
   }
 }
